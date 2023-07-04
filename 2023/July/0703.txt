@@ -1,0 +1,67 @@
+* Diary
+
+Today was a crazy day at work, from 8 am to 8 pm.
+
+I had so much to do, it was insane!
+
+
+I've got a bunch of things on my plate.
+
+Honestly, I'm not even sure if I can handle it all.
+
+it's gotta get done.
+
+
+During the last weekend, I visited San Diego.
+
+Well, it wasn't as fun as I hoped.
+
+The person I was with didn't really click with me.
+
+And I was laying on the beach wearing short pants, my legs got super burnt.
+
+I'm hurting like to death.
+
+I took some medicine to ease the pain.
+
+
+Anyway, the most important thing during a business trip is not to injure myself.
+
+I really hope my legs recover soon.
+
+
+* TIL
+
+foreach() is an Action, while map() is a Transformation.
+
+foreach() returns None, while map() returns RDD.
+
+
+
+The amp() call computed a new value for each row and it returned it so that I get a new RDD.
+
+However, If i used foreach(), that would be useless because foreach() doesn't modify the rdd in any way.
+This is a map() example.
+```
+>>> rdd = sc.parallelize(xrange(0, 10)).map(lambda x: x + 1)
+>>> rdd.take(10)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+
+And this is a foreach() example
+```
+>>> rdd = sc.parallelize(range(0, 10)).foreach(lambda x: x + 1)
+>>> type(rdd)
+<class 'NoneType'>
+```
+
+
+Conversely, calling map() on a function that returns None like print isn't very useful.
+
+
+If you're using map() just for printing, it's not really useful.
+
+map() is meant for transforming RDDs, while print() doesn't require any RDD transformation.
+
+In such cases, it's better to use the foreach() function instead of map().
